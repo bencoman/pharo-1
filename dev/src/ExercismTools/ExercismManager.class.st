@@ -87,7 +87,7 @@ ExercismManager >> verifyToken [
 
 { #category : #exercism }
 ExercismManager >> viewOnExercism: packageOrTag [ 
-
+	"test only - induce one change to tools"
 	|  url |
 		
 	url := 'https://exercism.io/my/tracks/pharo'.
