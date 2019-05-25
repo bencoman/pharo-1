@@ -10,6 +10,22 @@ Class {
 	#category : #'ExercismTools-Core'
 }
 
+{ #category : #exercism }
+ExercismManager class >> customizeStudentCritics [
+
+	"Ignore 'Methods not accessing instance variables, being moved to class side' "
+	RBUtilityMethodsRule enabled: false.
+	
+	"Ignore 'Tests needing to be in their own package' "
+	ReTestClassNotInPackageWithTestEndingName enabled: false.
+	
+	"For ExercismTests only ignore 'Temporary variables not read or not written' "
+	GRTemporaryNeitherReadNorWrittenRule enabled: false.
+	ExercismTemporaryNeitherReadNorWrittenRule enabled: true.
+	
+
+]
+
 { #category : #'instance creation' }
 ExercismManager class >> default [
 	"answer a defulat manager"
