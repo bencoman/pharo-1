@@ -17,14 +17,6 @@ ExercismManager class >> default [
 	^self new
 ]
 
-{ #category : #exercism }
-ExercismManager class >> disableStudentCritics [
-
-	RBUtilityMethodsRule enabled: false.
-	ReTestClassNotInPackageWithTestEndingName enabled: false
-	
-]
-
 { #category : #config }
 ExercismManager class >> exercisePrefix [
 	^ 'Exercise'
@@ -71,7 +63,7 @@ ExercismManager class >> trackId [
 ExercismManager class >> upgrade [
 	"upgrade an environment (called from ugrade instructions)"
 
-	self disableStudentCritics.
+	self customizeStudentCritics.
 	World closeUnchangedWindows.
 ]
 
@@ -85,7 +77,7 @@ ExercismManager class >> welcome [
 	self isUserMode
 		ifTrue: [ 
 			IceRepository reset.
-			self disableStudentCritics ].
+			self customizeStudentCritics ].
 
 	"Select, package and then method so it scrolls nicely into view"
 	browser := Smalltalk tools browser openOnPackage: WelcomeTest package.
